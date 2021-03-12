@@ -31,9 +31,9 @@ class Log
         if pass {
             string path = (string) rtrim(self::path, "/");
             string file = path . "/" . date("Y-m-d");
-            var source = fopen(file, "a");
-            fwrite(source, date("Y-m-d H:i:s") . " [" . ucfirst(level) . "]: " . message . PHP_EOL);
-            fclose(source);
+            var resource = fopen(file, "a");
+            fwrite(resource, date("Y-m-d H:i:s") . " [" . ucfirst(level) . "]: " . message . PHP_EOL);
+            fclose(resource);
         }
     }
 
