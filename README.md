@@ -14,11 +14,8 @@ logger.so can be found in ext/modules
 
 use Logger\Log;
 
-$path = '/var/log/php';
-! file_exists($path) && mkdir('/var/log/php', 0777, true);
-
 // set where log file to place
-Log::setPath($path);
+Log::setPath('/var/log/php');
 
 // set a callback function
 function error_callback($message) {
