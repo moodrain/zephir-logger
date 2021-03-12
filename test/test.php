@@ -9,10 +9,18 @@ $path = '/var/log/php';
 Log::setPath($path);
 
 function error_callback($message) {
-	    echo PHP_EOL . 'error callback ' . $message . PHP_EOL;
+	echo 'error callback ' . $message . PHP_EOL;
+	return true;
+}
+
+function debug_callback_not_log($message) {
+	echo 'debug_callback_not_log ' . $message . PHP_EOL;
+	return false;
 }
 
 Log::setHandler('error', 'error_callback');
+Log::setHandler('debug', 'debug_callback_not_log');
 
 Log::error('something wrong');
+Log::debug('debug message');
 
